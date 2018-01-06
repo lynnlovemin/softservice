@@ -1,0 +1,18 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/lynnlovemin/SpringcloudConfig/ #配置git仓库地址
+          searchPaths: respo #配置仓库路径
+          username: 331509758@qq.com #访问git仓库的用户名
+          password: liyi880301 #访问git仓库的用户密码
+      label: master #配置仓库的分支
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
