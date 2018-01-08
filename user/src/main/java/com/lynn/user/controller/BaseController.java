@@ -1,5 +1,6 @@
 package com.lynn.user.controller;
 
+import com.lynn.user.service.OAuthService;
 import com.lynn.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
@@ -12,6 +13,8 @@ public abstract class BaseController {
 
     @Autowired
     protected UserService userService;
+    @Autowired
+    protected OAuthService oAuthService;
 
     /**
      * 参数的合法性校验
@@ -24,11 +27,4 @@ public abstract class BaseController {
         }
     }
 
-    /**
-     * 生成授权码
-     * @return
-     */
-    protected String getAuthorizeCode(){
-        return "1F5fQW";
-    }
 }

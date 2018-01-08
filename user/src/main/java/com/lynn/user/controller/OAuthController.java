@@ -4,6 +4,8 @@ import com.lynn.user.model.in.AccessTokenIn;
 import com.lynn.user.model.in.AuthorizeIn;
 import com.lynn.user.model.in.RefreshTokenIn;
 import com.lynn.user.model.out.AccessTokenOut;
+import com.lynn.user.result.Code;
+import com.lynn.user.result.SingleResult;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
@@ -37,20 +39,12 @@ public class OAuthController extends BaseController{
         validate(ret);
         //生成code(放到redis中，有效期10分钟，使用后清除)，重定向到response_uri,带上code和state
         if("code".equals(authorize.getResponseType())){
-            //判断client_id是否存在
-
-
-
-            String code = getAuthorizeCode();
-            StringBuilder uri = new StringBuilder(authorize.getRedirectUri());
-            uri.append("?code=").append(code);
-            if(StringUtils.isNotBlank(authorize.getState())){
-                uri.append("&state=").append(authorize.getState());
+            SingleResult<String> result = oAuthService.authorize(authorize);
+            if(result.getCode() == Code.SUCCESS.getStatus()){
+                response.sendRedirect(result.getData());
+            }else {
+                Assert.isTrue(false,result.getMessage());
             }
-            //将code存入redis,有效期设置为10分钟
-
-
-            response.sendRedirect(uri.toString());
         }else {
             Assert.isTrue(false,"response_type参数固定值为code");
         }
