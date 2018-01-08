@@ -1,5 +1,5 @@
 # softservice
-基于SpringCloud的微服务框架
+基于SpringCloud的微服务框架，实现了微服务的基本模块，持久层框架采用基于注解的mybatis，oauth2的授权码，access_token存放在redis中
 ## eureka
 服务的注册与发现
 ## ribbon
