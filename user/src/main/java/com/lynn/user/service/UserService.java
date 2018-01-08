@@ -4,6 +4,7 @@ import com.lynn.user.result.Code;
 import com.lynn.user.result.SingleResult;
 import com.lynn.user.utils.Algorithm;
 import com.lynn.user.utils.MessageDigestUtils;
+import com.lynn.user.utils.XXTEA;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 

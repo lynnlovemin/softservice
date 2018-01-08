@@ -12,13 +12,23 @@ public class AuthorizeIn extends BaseModel{
 
     @JsonProperty("client_id")
     @NotBlank(message = "缺少client_id参数")
-    private String ClientId;
+    private String clientId;
 
     private String state;
 
     @JsonProperty("redirect_uri")
     @NotBlank(message = "缺少redirect_uri参数")
     private String redirectUri;
+
+    private String openid;
+
+    public String getOpenid() {
+        return openid;
+    }
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
 
     public String getResponseType() {
         return responseType;
@@ -29,11 +39,11 @@ public class AuthorizeIn extends BaseModel{
     }
 
     public String getClientId() {
-        return ClientId;
+        return clientId;
     }
 
     public void setClientId(String clientId) {
-        ClientId = clientId;
+        this.clientId = clientId;
     }
 
     public String getState() {

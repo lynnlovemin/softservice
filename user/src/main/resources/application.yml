@@ -35,4 +35,11 @@ spring:
 self:
   data:
     redis:
-      expire: 600
+      code:
+        expire: 600
+      access_token:
+        expire: 7200
+      refresh_token:
+        expire: 15552000
+    openid_session_attribute: OPENID
+    xxtea_key: $@qaz()*

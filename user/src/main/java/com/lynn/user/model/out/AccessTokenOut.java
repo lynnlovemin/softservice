@@ -6,8 +6,6 @@ public class AccessTokenOut extends BaseModel {
 
     private String accessToken;
 
-    private String tokenType;
-
     private Integer expiresIn;
 
     private String refreshToken;
@@ -22,14 +20,6 @@ public class AccessTokenOut extends BaseModel {
 
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
-    }
-
-    public String getTokenType() {
-        return tokenType;
-    }
-
-    public void setTokenType(String tokenType) {
-        this.tokenType = tokenType;
     }
 
     public Integer getExpiresIn() {
