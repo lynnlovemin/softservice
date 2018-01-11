@@ -18,7 +18,18 @@ public class RefreshTokenIn extends BaseModel {
     @NotBlank(message = "缺少client_id参数")
     private String clientId;
 
+    @NotBlank(message = "缺少secret参数")
+    private String secret;
+
     private String scope;
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
 
     public String getGrantType() {
         return grantType;

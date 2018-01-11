@@ -89,6 +89,12 @@ public class OAuthController extends BaseController{
         if("refresh_token".equals(refreshTokenIn.getGrantType())){
             //根据client_id判断refresh_token是否有效
             //重新生成access_token和refresh_token
+            SingleResult<AccessTokenOut> result = oAuthService.getAccessToken(refreshTokenIn);
+            if(result.getCode() == Code.SUCCESS.getStatus()){
+                accessTokenOut = result.getData();
+            }else {
+                Assert.isTrue(false,result.getMessage());
+            }
         }else {
             Assert.isTrue(false,"grant_type参数固定值为refresh_token");
         }
