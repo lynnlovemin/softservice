@@ -30,6 +30,7 @@ CREATE TABLE `oauth_application` (
   `app_name` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_client_id` (`client_id`),
+  UNIQUE KEY `uk_app_name` (`app_name`),
   KEY `uk_client_id_secret` (`client_id`,`secret`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
