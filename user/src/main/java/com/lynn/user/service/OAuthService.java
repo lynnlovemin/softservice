@@ -154,6 +154,7 @@ public class OAuthService extends BaseService{
      * @param clientId
      * @param redirectUri
      * @return
+     *
      */
     private String getRedisCodeKey(String clientId,String redirectUri){
         return new StringBuilder(clientId).append('-').append(redirectUri).toString();

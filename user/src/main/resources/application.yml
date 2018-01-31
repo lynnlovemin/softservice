@@ -22,7 +22,7 @@ spring:
           dialect: org.hibernate.dialect.MySQL5Dialect
   redis:
     database: 0
-    host: localhost
+    host: 172.16.0.199
     port: 6379
 #    password:
     pool:

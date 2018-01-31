@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.WebUtils;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 @RequestMapping("user")
@@ -21,7 +23,7 @@ public class UserController extends BaseController {
     private String sessionOpenIdAttribute;
 
     @PostMapping("login")
-    public SingleResult<String> login(@Valid LoginIn loginIn, BindingResult ret, HttpServletRequest request){
+    public SingleResult<String> login(@Valid LoginIn loginIn, BindingResult ret, HttpServletRequest request, HttpServletResponse response){
         validate(ret);
         SingleResult<String> result = userService.login(loginIn.getMobile(),loginIn.getPassword());
         if(result.getCode() == Code.SUCCESS.getStatus()){

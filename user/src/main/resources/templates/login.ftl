@@ -28,13 +28,14 @@
                     return;
                 }
                 $.ajax({
-                    url:"http://localhost:8100/user/login",
+                    url:"/user/login",
                     type:"POST",
                     dataType:"json",
                     data:{mobile:mobile,password:password},
                     success:function(data){
                         if(data.code == 1){
-                            window.location.href = "http://localhost:8100/oauth2/authorize?client_id=${authorize.clientId}&response_type=${authorize.responseType}&redirect_uri=${authorize.redirectUri}";
+                            window.location.href = "/oauth2/authorize?client_id=${authorize.clientId}&response_type=${authorize.responseType}&redirect_uri=${authorize.redirectUri}";
+                            return false;
                         }else{
                             alert(data.message);
                         }
