@@ -27,6 +27,7 @@ CREATE TABLE `oauth_application` (
   `secret` varchar(32) NOT NULL,
   `gmt_create` datetime DEFAULT CURRENT_TIMESTAMP,
   `gmt_modified` datetime DEFAULT CURRENT_TIMESTAMP,
+  `app_name` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_client_id` (`client_id`),
   KEY `uk_client_id_secret` (`client_id`,`secret`)
